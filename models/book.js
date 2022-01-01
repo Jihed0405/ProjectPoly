@@ -17,7 +17,22 @@ var BookSchema = new Schema({
   publisher: {
     type: String,
     required: true
-  }
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },image: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: String,
+    default:""
+  },
 });
 
 module.exports = mongoose.model('Book', BookSchema);

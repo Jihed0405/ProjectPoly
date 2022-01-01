@@ -8,10 +8,33 @@ var UserSchema = new Schema({
         unique: true,
         required: true
     },
+    email: {
+        type: String,
+        unique: true,
+        required: true
+    },
   password: {
         type: String,
         required: true
-    }
+    },
+    firstname: {
+        type: String,
+    },
+    lastname: {
+        type: String,      
+    },
+    tel: {
+        type: String,      
+    },
+    address: {
+        type: String,      
+    },
+    job: {
+        type: String,      
+    },
+    bio: {
+        type: String,      
+    },
 });
 
 UserSchema.pre('save', function (next) {

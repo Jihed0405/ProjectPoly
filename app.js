@@ -10,7 +10,15 @@ let express = require('express'),
     config = require('./config/database');
 
 require('./config/passport')(passport);
-mongoose.connect(config.database, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true });
+
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://jihed:jihed0405%2Cn@cluster0.b6x86.mongodb.net/angularBook?retryWrites=true&w=majority";
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true }).then( () => {
+  console.log('Connected to database ')
+})
+.catch( (err) => {
+  console.error(`Error connecting to the database. \n${err}`);
+})
 
 let app = express();
 
@@ -18,8 +26,8 @@ let app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(cors());
-
+app.use(cors({origin:'http://localhost:4200'}));
+app.options('*', cors());
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -46,7 +54,11 @@ let book = require('./routes/book');
 // Using routes
 app.use('/api', authentication);
 app.use('/api', passport.authenticate('jwt', { session: false}), book);
+let cart = require('./routes/cart');
 
+// Using routes
+app.use('/api', authentication);
+app.use('/api', passport.authenticate('jwt', { session: false}), cart);
 /**
  * End Server Routes
  */
