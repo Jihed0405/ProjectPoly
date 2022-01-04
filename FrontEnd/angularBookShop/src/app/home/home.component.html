@@ -1,0 +1,254 @@
+<ngx-slick-carousel class="main-slider slider"   [config]="slideConfig" >
+    <div ngxSlickItem class="slider-item " style="background-image:url('assets/images/slideshow1-21.jpg');background-position:50%;background-repeat:no-repeat;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-12 offset-lg-1 offset-md-1">
+            <div class="slider-caption">
+              <span class="lead">Once you learn to read </span>
+              <h1 class="mt-2 mb-5">you will be <br><span class="text-color">forever free</span></h1>
+              <a href="#" class="btn btn-main">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div ngxSlickItem  class="slider-item" style="background-image:url('assets/images/slideshow1-31.jpg');background-position:50%;background-repeat:no-repeat;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-12 offset-lg-1 offset-md-1">
+            <div class="slider-caption">
+              <span class="lead">A book  </span>
+              <h1 class="mt-2 mb-5">is a gift you can open <br><span class="text-color">    again and again  </span></h1>
+              <a href="#" class="btn btn-main">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div ngxSlickItem  class="slider-item" style="background-image:url('assets/images/slideshow1-11.jpg'); background-position:50%;background-repeat:no-repeat;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-12 offset-lg-1 offset-md-1">
+            <div class="slider-caption">
+              <span class="lead">Reading a good book is  </span>
+              <h1 class="mt-2 mb-5">like taking <br><span class="text-color">  a journey </span> </h1>
+              <a href="#" class="btn btn-main">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ngx-slick-carousel>
+  
+  <section class="category section pt-3 pb-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-6">
+          <div class="cat-item mb-4 mb-lg-0">
+            <img src="assets/images/Venom.jpg" alt=""width="200" class="img-fluid mr-2">
+            <div class="item-info">
+              <p class="mb-0">Darling Venom</p><br>
+              <h4 class="mb-4">up to <strong>50% </strong>off</h4>
+  
+              <a href="#" class="read-more">Shop now</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-4 col-sm-12 col-md-6">
+          <div class="cat-item mb-4 mb-lg-0">
+            <img src="assets/images/Home.jpg" alt="" width="200" class="img-fluid mr-2">
+  
+            <div class="item-info">
+              <p class="mb-0">The last one home</p><br>
+              <h4 class="mb-4">up to <strong>40% </strong>off</h4>
+  
+              <a href="#" class="read-more">Shop now</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-lg-4 col-sm-12 col-md-6">
+          <div class="cat-item">
+            <img src="assets/images/Monday.jpg" alt="" width="200" class="img-fluid mr-2">
+            <div class="item-info">
+              <p class="mb-0">Sold on a Monday</p><br>
+              <h4 class="mb-4">up to <strong>50% </strong>off</h4>
+  
+              <a href="#" class="read-more">Shop now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section products-main">
+      <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="title text-center">
+                        <h2>New arrivals</h2>
+                        <p>The best Online sales to shop these weekend</p>
+                    </div>
+                </div>
+            </div>
+    
+    
+        <div class="row">
+          <div *ngFor="let book of books" class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
+              <div class="product">
+                <div class="product-wrap">
+                    <a  [routerLink]="['/product-single', book._id]"><img class="img-fluid w-100 mb-3 img-first" src={{book.image}} alt="product-img" /></a>
+                   
+                </div>
+    
+                <span class="onsale">Sale</span>
+                <div class="product-hover-overlay">
+                    <a href="#"><i class="tf-ion-android-cart"></i></a>
+                    <a href="#"><i class="tf-ion-ios-heart"></i></a>
+                  </div>
+    
+                <div class="product-info">
+                    <h2 class="product-title h5 mb-0"><a >{{book.title}}</a> <br><span class="type">  {{book.type}}</span></h2>
+                    <span class="price">
+                       {{book.price}}
+                    </span>
+                </div>
+            </div>
+          </div>
+    
+          
+        </div>
+      </div>
+    </section>
+    <!-- /portfolio -->
+    <section class="section products-main">
+      <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="title text-center">
+                        <h2>Most wished for in Books</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+    
+    
+        <div class="row">
+          <div *ngFor="let book of books" class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" >
+              <div class="product">
+                <div class="product-wrap">
+                    <a [routerLink]="['/product-single', book._id]"><img class="img-fluid w-100 mb-3 img-first" src={{book.image}} alt="product-img" /></a>
+                   
+                </div>
+    
+                <span class="onsale">Sale</span>
+                <div class="product-hover-overlay">
+                    <a href="#"><i class="tf-ion-android-cart"></i></a>
+                    <a href="#"><i class="tf-ion-ios-heart"></i></a>
+                  </div>
+    
+                <div class="product-info">
+                    <h2 class="product-title h5 mb-0"><a >{{book.title}}</a> <br><span class="type">  {{book.type}}</span></h2>
+                    <span class="price">
+                       {{book.price}}
+                    </span>
+                </div>
+            </div>
+          </div>
+    
+          
+        </div>
+      </div>
+    </section>
+    
+  
+  <section class="section products-list">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-12">
+            <img src="assets/images/adsv.jpg" alt="Product big thumb"  class="img-fluid mr-2 w-100">
+        </div>
+  
+        <div class="col-lg-4 col-sm-6 col-md-6">
+          <div class="widget-featured-entries mt-5 mt-lg-0">
+            <h4 class="mb-4 pb-3">Best selllers</h4>
+  
+                  <div class="media mb-3" *ngFor="let book of books">
+                      <a class="featured-entry-thumb" [routerLink]="['/product-single', book._id]">
+                        <img src="{{book.image}}" alt="Product thumb" width="64" class="img-fluid mr-3">
+                    </a>
+                    <div class="media-body">
+                      <h6 class="featured-entry-title mb-0"><a href="#">{{book.title}}</a></h6>
+                      <p class="featured-entry-meta"> {{book.price}}</p>
+                    </div>
+                  </div>
+  
+          </div>
+        </div>
+  
+  
+        <div class="col-lg-4 col-sm-6 col-md-6">
+          <div class="widget-featured-entries mt-5 mt-lg-0">
+            <h4 class="mb-4 pb-3">New Arrivals</h4>
+  
+                  <div class="media mb-3" *ngFor="let book of books"> 
+                      <a class="featured-entry-thumb" [routerLink]="['/product-single', book._id]">
+                        <img src="{{book.image}}" alt="Product thumb" width="64" class="img-fluid mr-3">
+                    </a>
+                    <div class="media-body">
+                      <h6 class="featured-entry-title mb-0"><a href="#">{{book.title}}</a></h6>
+                      <p class="featured-entry-meta">{{book.price}}</p>
+                    </div>
+                  </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="features border-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="feature-block">
+            <i class="tf-ion-android-bicycle"></i>
+            <div class="content">
+              <h5>Free Shipping</h5>
+              <p>On all order over $39.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="feature-block">
+            <i class="tf-wallet"></i>
+            <div class="content">
+              <h5>30 Days Return</h5>
+              <p>Money back Guarantee</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="feature-block">
+            <i class="tf-key"></i>
+            <div class="content">
+              <h5>Secure Checkout</h5>
+              <p>100% Protected by paypal</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="feature-block">
+            <i class="tf-clock"></i>
+            <div class="content">
+              <h5>24/7 Support</h5>
+              <p>All time customer support </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
