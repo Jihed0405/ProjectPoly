@@ -6,6 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { EncryptjsService } from '../services/encryptjs.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import{Router}from '@angular/router'
 @Component({
   selector: 'app-productsingle',
   templateUrl: './productsingle.component.html',
@@ -22,7 +23,7 @@ export class ProductsingleComponent implements OnInit {
   total: any;
   quantityForm:any =  FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,private encryptjs:EncryptjsService,private bookServ:BooksrviceService,private cartServ:CartService,private tokenStorage: TokenStorageService) {
+  constructor(private formBuilder: FormBuilder,private router :Router,private route: ActivatedRoute,private encryptjs:EncryptjsService,private bookServ:BooksrviceService,private cartServ:CartService,private tokenStorage: TokenStorageService) {
     this.bookServ.getbooks().subscribe(
       data=>{ 
       
@@ -75,7 +76,7 @@ export class ProductsingleComponent implements OnInit {
       data => {
         console.log(data);
         
-      //this.router.navigate(["/home"]);
+      this.router.navigate(["/cart"]);
 
       },
       err => {

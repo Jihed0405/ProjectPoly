@@ -37,8 +37,8 @@
 
                       <div class="product">
                   <div class="product-wrap">
-                    <a routerLink="/product-single"><img class="img-fluid w-100 mb-3 img-first" src="{{book.image}}" alt="product-img" /></a>
-                    <a routerLink="/product-single"><img class="img-fluid w-100 mb-3 img-second" src="{{book.image2}}" alt="product-img" /></a>
+                    <a [routerLink]="['/product-single', book._id]"><img class="img-fluid w-100 mb-3 img-first" src="{{book.image}}" alt="product-img" /></a>
+                    
                   </div>
             
                   <span class="onsale">Sale</span>
@@ -48,7 +48,7 @@
                         </div>
             
                   <div class="product-info">
-                    <h2 class="product-title h5 mb-0"><a routerLink="/product-single">{{book.title}}</a></h2>
+                    <h2 class="product-title h5 mb-0"><a [routerLink]="['/product-single', book._id]">{{book.title}}</a></h2>
                     <span class="price">
                      {{book.price}}
                     </span>
@@ -104,7 +104,7 @@
   <!-- popular product -->
   <section class="widget widget-popular mb-5">
     <h3 class="widget-title mb-4 h4">Popular Products</h3>
-    <a class="popular-products-item media"   *ngFor="let book of bookPopular" routerLink="/product-single">
+    <a class="popular-products-item media"   *ngFor="let book of bookPopular"[routerLink]="['/product-single', book._id]">
       <img src="{{book.image}}" alt="" class="img-fluid mr-4">
       <div class="media-body">
         <h6>{{book.title}} <br></h6>
